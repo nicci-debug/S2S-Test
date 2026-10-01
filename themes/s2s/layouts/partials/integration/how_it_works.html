@@ -1,0 +1,21 @@
+{{ $page := . }}
+{{ with .Params.steps_heading }}
+  {{ with $page.Params.steps }}
+    <section class="integration-section integration-how-it-works">
+      <h2 class="mb-4">{{ $page.Params.steps_heading }}</h2>
+      <ol class="integration-steps">
+        {{ range $index, $step := . }}
+          {{ if and $step.title $step.text }}
+            <li class="integration-step">
+              <span class="integration-step-number">{{ add $index 1 }}.</span>
+              <div>
+                <h3 class="h5">{{ $step.title }}</h3>
+                <p class="mb-0">{{ $step.text }}</p>
+              </div>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ol>
+    </section>
+  {{ end }}
+{{ end }}

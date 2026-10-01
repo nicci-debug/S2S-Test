@@ -1,0 +1,28 @@
+{{ with .Title }}
+  {{ $page := $ }}
+  <section class="container py-5 integration-hero">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8">
+        <h1 class="display-5 fw-bold">{{ . }}</h1>
+        {{ with $page.Params.hero_subheading }}
+          <p class="lead mb-4">{{ . }}</p>
+        {{ end }}
+        <div class="d-flex flex-wrap gap-3">
+          <a class="btn btn-primary" href="#">Book a demo</a>
+          {{ with $page.Params.hero_secondary_cta }}
+            {{ if and .label .url }}
+              <a class="btn btn-outline-charcoal" href="{{ .url }}">{{ .label }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      {{ $logo := $page.Params.logo }}
+      {{ if and $logo (not (strings.HasPrefix $logo "[PLACEHOLDER")) }}
+        {{ $logoPath := printf "images/integrations/%s" $logo | relURL }}
+        <div class="col-lg-4 text-lg-end">
+          <img class="integration-hero-logo" src="{{ $logoPath }}" alt="{{ $page.Title }} logo">
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

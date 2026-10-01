@@ -1,0 +1,77 @@
+Build integration page templates for three page types in this Hugo site, using the existing s2s theme. Layout and placeholders only — no marketing copy.
+
+STEP 0 — BRANCH
+Before changing anything, run:
+  git checkout main && git pull && git checkout -b feature/integration-templates
+All work happens on this branch. Do not merge into main.
+
+PAGE TYPES AND ROUTING
+- ERP / accounting pages: front matter type: "source"  -> themes/s2s/layouts/source/single.html
+- Sales channel pages:    front matter type: "channel" -> themes/s2s/layouts/channel/single.html
+- Fulfilment pages:       front matter type: "fulfilment" -> themes/s2s/layouts/fulfilment/single.html
+All three live under content/integrations/ and must render at /integrations/<slug>/.
+
+SHARED STRUCTURE (do not build three separate page designs)
+- Create the sections once as partials in themes/s2s/layouts/partials/integration/.
+- Each of the three single.html layouts must be a thin wrapper that calls the same partials in the same order. The only differences between types are the labels listed under TYPE DIFFERENCES below, passed in from the layout.
+- All page text comes from the content file's front matter. Templates must not contain hard-coded copy, apart from the fixed labels listed below.
+- Any section whose front matter field is missing or empty must not render (no empty headings).
+
+PAGE LAYOUT (in this order)
+Main column (8/12 on desktop) + sticky sidebar (4/12 on desktop). On mobile, single column with the sidebar content appearing after the main content.
+
+Full width, above the columns:
+1. breadcrumbs.html — Home > Integrations > {page title}
+2. hero.html — H1 from title, subheading from hero_subheading, red "Book a demo" button (link "#"), outline secondary button from hero_secondary_cta (label + url). If logo is set, show it from static/images/integrations/; otherwise show nothing (do not generate or download logos).
+3. trust_bar.html — heading from trust_heading, six grey boxes each containing [PLACEHOLDER: client logo]. Do not use any company names.
+
+Main column:
+4. tldr.html — a short summary box from tldr (plain paragraph, light grey background, charcoal left border).
+5. benefits.html — H2 from benefits_heading, cards from benefits (list of title + text).
+6. sync.html — H2 from sync_heading, a simple two-column table from sync_items (list of item + direction + detail). This is the "what syncs" section.
+7. how_it_works.html — H2 from steps_heading, numbered steps from steps (list of title + text). Step numbers are plain bold red text — NOT inside circles, rings or badges.
+8. stats.html — renders ONLY if stats is set in front matter (list of value + label). Do not supply default stats. Do not reuse homepage stats.
+9. faq.html — H2 from faq_heading, Bootstrap accordion from faqs (list of question + answer). Also output FAQPage JSON-LD from the same faqs, BUT skip the JSON-LD entirely if any question or answer contains "[PLACEHOLDER".
+10. cta.html — charcoal band with white text, heading from cta_heading, text from cta_text, red "Book a demo" button (link "#").
+
+Sticky sidebar (position: sticky on desktop only):
+11. sidebar.html containing:
+   - red "Book a demo" button (link "#")
+   - a "Key facts" list from key_facts (list of label + value)
+   - a "connects with" list from connects_with (list of name + url), using the type-specific label below
+
+TYPE DIFFERENCES (fixed labels set in each single.html, nothing else differs)
+- source:     connects_with label "Sell on these channels"
+- channel:    connects_with label "Connect your ERP"
+- fulfilment: connects_with label "Works with"
+
+ARCHETYPES
+Create archetypes/source.md, archetypes/channel.md and archetypes/fulfilment.md containing every front matter field above, with the correct type set, draft: true, and every text value set to "[PLACEHOLDER: what goes here]". Lists should contain example entries with placeholder values.
+
+TEST PAGES
+Create exactly three test pages using the archetypes, all draft: true:
+- content/integrations/example-erp.md        (type: source, title "Example ERP")
+- content/integrations/example-channel.md    (type: channel, title "Example Channel")
+- content/integrations/example-fulfilment.md (type: fulfilment, title "Example Fulfilment")
+Leave stats empty on all three so we can confirm the section hides. Fill every other field with placeholders.
+
+DESIGN RULES
+- Colours: charcoal #2a2d35, red #e8312a, red hover #c8231d, white. Bootstrap light grey for backgrounds, borders and placeholder boxes.
+- Roboto only. Add new styles to themes/s2s/assets/scss/custom.scss only.
+- No decorative circles, rings, blobs, gradients, background shapes, icons, stock or external images.
+- Heading order: one H1 (hero), H2 per section, H3 for card/step titles.
+- Fully responsive. Sidebar must not overlap the footer or CTA band.
+
+STRICT RULES
+- Do not write any marketing copy, product claims, sync details, setup times, statistics, client names or integration names other than the three "Example" titles above. Everything else uses [PLACEHOLDER: what goes here].
+- Do not create pages for real integrations (Sage, Syspro, Shopify, TFS, etc.).
+- Do not change the homepage, header, footer, nav or hugo.toml unless required for these pages to build.
+- Do not deploy. Do not merge to main. Do not force-push.
+- If anything is unclear or cannot be done as written, STOP and ask me instead of guessing.
+
+WHEN FINISHED
+- Run: hugo --gc --minify --buildDrafts and confirm no errors or warnings.
+- Confirm each test page renders at /integrations/example-erp/, /integrations/example-channel/ and /integrations/example-fulfilment/.
+- Confirm each page has exactly one H1, the stats section does not render, and no FAQPage JSON-LD is output (because the FAQs are placeholders).
+- List every file created or changed, with one line each.
+- Confirm which branch the work is on.

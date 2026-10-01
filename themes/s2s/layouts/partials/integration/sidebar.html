@@ -1,0 +1,35 @@
+{{ $page := .page }}
+<div class="integration-sidebar-inner">
+  <div class="integration-sidebar-card">
+    <a class="btn btn-primary w-100 mb-4" href="#">Book a demo</a>
+
+    {{ with $page.Params.key_facts }}
+      <section class="mb-4">
+        <h2 class="h4 mb-3">Key facts</h2>
+        <ul class="integration-sidebar-list">
+          {{ range . }}
+            {{ if and .label .value }}
+              <li class="integration-sidebar-fact">
+                <span class="fw-bold">{{ .label }}</span>
+                <span>{{ .value }}</span>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+
+    {{ with $page.Params.connects_with }}
+      <section>
+        <h2 class="h4 mb-3">{{ $.connectsWithLabel }}</h2>
+        <ul class="integration-sidebar-list">
+          {{ range . }}
+            {{ if and .name .url }}
+              <li><a href="{{ .url }}">{{ .name }}</a></li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+  </div>
+</div>

@@ -1,0 +1,8 @@
+{{ $page := . }}
+{{ if and .Params.cta_heading .Params.cta_text }}
+  <section class="integration-section integration-cta">
+    <h2>{{ $page.Params.cta_heading }}</h2>
+    <p>{{ $page.Params.cta_text }}</p>
+    <a class="btn btn-primary" href="#">Book a demo</a>
+  </section>
+{{ end }}
