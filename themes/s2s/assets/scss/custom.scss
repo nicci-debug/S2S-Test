@@ -1,0 +1,62 @@
+$charcoal: #2a2d35;
+$red-primary: #e8312a;
+$red-hover: #c8231d;
+$white: #ffffff;
+
+:root {
+  --s2s-charcoal: #{$charcoal};
+  --s2s-red-primary: #{$red-primary};
+  --s2s-red-hover: #{$red-hover};
+  --s2s-white: #{$white};
+  --bs-primary: #{$red-primary};
+  --bs-primary-rgb: 232, 49, 42;
+  --bs-body-font-family: "Roboto", sans-serif;
+}
+
+body {
+  color: $charcoal;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  color: $red-primary;
+
+  &:hover {
+    color: $red-hover;
+  }
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar .nav-link {
+  color: $charcoal;
+}
+
+.navbar .nav-link:hover {
+  color: $red-hover;
+}
+
+.btn-primary {
+  --bs-btn-color: #{$white};
+  --bs-btn-bg: #{$red-primary};
+  --bs-btn-border-color: #{$red-primary};
+  --bs-btn-hover-color: #{$white};
+  --bs-btn-hover-bg: #{$red-hover};
+  --bs-btn-hover-border-color: #{$red-hover};
+  --bs-btn-active-color: #{$white};
+  --bs-btn-active-bg: #{$red-hover};
+  --bs-btn-active-border-color: #{$red-hover};
+  --bs-btn-disabled-color: #{$white};
+  --bs-btn-disabled-bg: #{$red-primary};
+  --bs-btn-disabled-border-color: #{$red-primary};
+}
+
+.site-footer {
+  background-color: $charcoal;
+  color: $white;
+}
+
+.site-footer a,
+.site-footer a:hover {
+  color: $white;
+}

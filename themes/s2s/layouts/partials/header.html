@@ -1,0 +1,28 @@
+<header class="site-header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="{{ site.Home.RelPermalink }}">
+        {{ if fileExists "static/images/Stock2Shop-Logo-Horizontal-Color.png" }}
+          <img src="{{ "images/Stock2Shop-Logo-Horizontal-Color.png" | relURL }}" alt="Stock2Shop">
+        {{ else }}
+          Stock2Shop
+        {{ end }}
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavigation">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          {{ range site.Menus.main }}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ .URL | relURL }}">{{ .Name }}</a>
+            </li>
+          {{ end }}
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-primary" href="#">Book a demo</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
