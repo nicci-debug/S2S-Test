@@ -1,0 +1,83 @@
+Build the homepage section structure for this Hugo site using the existing s2s theme. Layout and placeholders only — no marketing copy.
+
+APPROACH
+- All homepage text, links and settings must come from a single data file: data/home.yaml. Templates must not contain hard-coded copy.
+- Each section is its own partial in themes/s2s/layouts/partials/home/, called in order from themes/s2s/layouts/index.html.
+- Each section in data/home.yaml has an "enabled: true/false" flag. If false, the section does not render.
+- Reuse the existing header, footer, Bootstrap 5, Roboto and brand SCSS. Add any new styles to themes/s2s/assets/scss/custom.scss only.
+
+SECTIONS (in this exact order)
+
+1. hero.html
+   - One H1 (the only H1 on the page): [PLACEHOLDER: hero headline]
+   - Subheading paragraph: [PLACEHOLDER: hero subheading]
+   - Primary button (red): "Book a demo", link "#"
+   - Secondary button (outline, charcoal): [PLACEHOLDER: secondary CTA label], link "#"
+   - Right-hand column: a light grey box with the text [PLACEHOLDER: hero visual]. No images, no shapes.
+   - Two columns on desktop, stacked on mobile.
+
+2. trust_bar.html
+   - Small heading: [PLACEHOLDER: trust bar heading]
+   - Six equal grey boxes, each containing the text [PLACEHOLDER: client logo]. Do not use any real or invented company names.
+
+3. stats.html
+   - Three stat blocks. Use EXACTLY these values and labels, nothing else:
+     - Value: "350+"  Label: "active clients"
+     - Value: "2016"  Label: "connecting businesses since"
+     - Value: "SA, UK & beyond"  Label: "where our clients trade"
+   - Values in red, large; labels in charcoal. No icons, no circles.
+
+4. benefits.html
+   - Section heading: [PLACEHOLDER: benefits heading]
+   - Four cards in a grid (2x2 desktop, 1 column mobile). Each card: title [PLACEHOLDER: benefit title] and text [PLACEHOLDER: benefit description].
+
+5. how_it_works.html
+   - Section heading: [PLACEHOLDER: how it works heading]
+   - Three steps in a row. Each step shows the step number as plain bold red text ("1", "2", "3") — NOT inside a circle, ring or badge — then [PLACEHOLDER: step title] and [PLACEHOLDER: step description].
+
+6. integrations.html
+   - Section heading: [PLACEHOLDER: integrations heading]
+   - Row 1 label "ERP and accounting". Tiles (name only, linking to the URL shown):
+     - Sage -> /integrations/sage/   (ONE tile only for all Sage versions)
+     - Syspro -> /integrations/syspro/   (spell exactly "Syspro", never "SYSPRO")
+     - SAP Business One -> /integrations/sap-business-one/
+     - Acumatica -> /integrations/acumatica/
+   - Row 2 label "Sales channels". Tiles:
+     - Shopify -> /integrations/shopify/
+     - WooCommerce -> /integrations/woocommerce/
+     - Magento -> /integrations/magento-2/
+     - Takealot -> /integrations/takealot/
+     - Amazon -> /integrations/amazon/
+   - Below the rows: a text link "View all integrations" -> /integrations/
+   - Tiles are simple white cards with a light grey border and the name in charcoal. No logos, no descriptions.
+
+7. faq.html
+   - Section heading: [PLACEHOLDER: FAQ heading]
+   - Bootstrap accordion with four items, each question [PLACEHOLDER: question] and answer [PLACEHOLDER: answer].
+   - Do NOT add FAQ schema or any structured data.
+
+8. cta.html
+   - Full-width band, charcoal background, white text.
+   - Heading: [PLACEHOLDER: closing CTA heading]
+   - Short paragraph: [PLACEHOLDER: closing CTA text]
+   - Red button: "Book a demo", link "#"
+
+DESIGN RULES
+- Colours: charcoal #2a2d35, red #e8312a, red hover #c8231d, white. Bootstrap light grey (bg-light) may be used for alternating section backgrounds and placeholder boxes.
+- Font: Roboto only.
+- No decorative circles, rings, blobs, gradients, background shapes, icons, stock images or external images.
+- Consistent vertical spacing between sections. Fully responsive.
+- Heading order: one H1 in the hero, H2 for each section heading, H3 for card/step titles.
+
+STRICT RULES
+- Do not write any marketing copy, headlines, claims, statistics, client names, testimonials or feature descriptions beyond what is specified above. Anything not specified must use the format [PLACEHOLDER: what goes here].
+- Do not add, change or "improve" the three stat values or labels.
+- Do not change the header, footer, nav menu or hugo.toml unless required for the homepage to build.
+- Do not create content pages for the integration links — broken links are expected for now.
+- Do not deploy, commit or push.
+- If anything is unclear or cannot be done as written, STOP and ask me instead of guessing.
+
+WHEN FINISHED
+- Run: hugo --gc --minify and confirm it builds with no errors or warnings.
+- List every file created or changed, with one line each.
+- Confirm the homepage contains exactly one H1.

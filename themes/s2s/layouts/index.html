@@ -1,5 +1,26 @@
 {{ define "main" }}
-  <section class="container py-5">
-    <p>[PLACEHOLDER: homepage content]</p>
-  </section>
+  {{ with site.Data.home.hero }}
+    {{ if .enabled }}{{ partial "home/hero.html" . }}{{ end }}
+  {{ end }}
+  {{ with site.Data.home.trust_bar }}
+    {{ if .enabled }}{{ partial "home/trust_bar.html" . }}{{ end }}
+  {{ end }}
+  {{ with site.Data.home.stats }}
+    {{ if .enabled }}{{ partial "home/stats.html" . }}{{ end }}
+  {{ end }}
+  {{ with site.Data.home.benefits }}
+    {{ if .enabled }}{{ partial "home/benefits.html" . }}{{ end }}
+  {{ end }}
+  {{ with site.Data.home.how_it_works }}
+    {{ if .enabled }}{{ partial "home/how_it_works.html" . }}{{ end }}
+  {{ end }}
+  {{ with site.Data.home.integrations }}
+    {{ if .enabled }}{{ partial "home/integrations.html" . }}{{ end }}
+  {{ end }}
+  {{ with site.Data.home.faq }}
+    {{ if .enabled }}{{ partial "home/faq.html" . }}{{ end }}
+  {{ end }}
+  {{ with site.Data.home.cta }}
+    {{ if .enabled }}{{ partial "home/cta.html" . }}{{ end }}
+  {{ end }}
 {{ end }}

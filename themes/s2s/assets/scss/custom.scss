@@ -60,3 +60,116 @@ a {
 .site-footer a:hover {
   color: $white;
 }
+
+.home-section {
+  padding-block: 3rem;
+}
+
+.home-hero-visual {
+  display: flex;
+  min-height: 20rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--bs-light);
+  color: $charcoal;
+  text-align: center;
+}
+
+.home-trust-box {
+  display: flex;
+  min-height: 5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: $charcoal;
+  text-align: center;
+}
+
+.home-stat-value {
+  color: $red-primary;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.home-stat-label {
+  color: $charcoal;
+}
+
+.home-benefit-card {
+  height: 100%;
+  color: $charcoal;
+}
+
+.home-step-number {
+  color: $red-primary;
+  font-weight: 700;
+}
+
+.home-integration-tile {
+  display: flex;
+  min-height: 4.5rem;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid var(--bs-border-color);
+  background-color: $white;
+  color: $charcoal;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $red-primary;
+    color: $charcoal;
+  }
+}
+
+.home-faq .accordion-button {
+  background-color: $white;
+  color: $charcoal;
+}
+
+.home-faq .accordion-button:not(.collapsed) {
+  background-color: $white;
+  box-shadow: none;
+  color: $charcoal;
+}
+
+.home-faq .accordion-button:focus {
+  border-color: var(--bs-border-color);
+  box-shadow: 0 0 0 0.25rem rgba(232, 49, 42, 0.25);
+}
+
+.home-faq .accordion-button::after {
+  display: none;
+}
+
+.home-cta {
+  background-color: $charcoal;
+  color: $white;
+}
+
+.home-cta h2,
+.home-cta p {
+  color: $white;
+}
+
+.btn-outline-charcoal {
+  --bs-btn-color: #{$charcoal};
+  --bs-btn-border-color: #{$charcoal};
+  --bs-btn-hover-color: #{$white};
+  --bs-btn-hover-bg: #{$charcoal};
+  --bs-btn-hover-border-color: #{$charcoal};
+  --bs-btn-active-color: #{$white};
+  --bs-btn-active-bg: #{$charcoal};
+  --bs-btn-active-border-color: #{$charcoal};
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-integration-tile {
+    transition: border-color 160ms ease;
+  }
+}
