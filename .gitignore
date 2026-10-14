@@ -9,7 +9,7 @@ out-tsc
 .expo-shared
 
 # dependencies
-node_modules
+node_modules/
 
 # IDEs and editors
 /.idea
@@ -50,3 +50,14 @@ Thumbs.db
 public/
 resources/_gen/
 .hugo_build.lock
+
+# Retained locally but no longer tracked
+/artifacts/
+/lib/
+/scripts/
+/package.json
+/pnpm-workspace.yaml
+/pnpm-lock.yaml
+/tsconfig*.json
+/.npmrc
+/attached_assets/

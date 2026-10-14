@@ -1,23 +1,35 @@
-modules = ["nodejs-24"]
+run = "hugo server --bind 0.0.0.0 --port 3000 --baseURL / --buildDrafts --disableFastRender"
 
 [deployment]
 router = "application"
 deploymentTarget = "autoscale"
 
-[deployment.postBuild]
-args = ["pnpm", "store", "prune"]
-env = { "CI" = "true" }
-
 [workflows]
 runButton = "Project"
 
-[agent]
-stack = "PNPM_WORKSPACE"
-expertMode = true
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
 
-[postMerge]
-path = "scripts/post-merge.sh"
-timeoutMs = 20000
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Hugo Preview"
+
+[[workflows.workflow]]
+name = "Hugo Preview"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "hugo server --bind 0.0.0.0 --port 3000 --baseURL / --buildDrafts --disableFastRender"
+waitForPort = 3000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[agent]
+expertMode = true
 
 [nix]
 channel = "stable-25_05"
