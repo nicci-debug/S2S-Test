@@ -1,0 +1,21 @@
+{{ define "main" }}
+  {{ partial "integration/breadcrumbs.html" . }}
+  {{ partial "integration/hero.html" . }}
+  {{ partial "integration/trust_bar.html" . }}
+  <div class="container py-5 integration-layout">
+    <div class="row g-4 g-lg-5">
+      <div class="col-12 col-lg-8">
+        {{ partial "integration/tldr.html" . }}
+        {{ partial "integration/benefits.html" . }}
+        {{ partial "integration/sync.html" . }}
+        {{ partial "integration/how_it_works.html" . }}
+        {{ partial "integration/stats.html" . }}
+        {{ partial "integration/faq.html" . }}
+        {{ partial "integration/cta.html" . }}
+      </div>
+      <aside class="col-12 col-lg-4">
+        {{ partial "integration/sidebar.html" (dict "page" . "connectsWithLabel" "Works with") }}
+      </aside>
+    </div>
+  </div>
+{{ end }}

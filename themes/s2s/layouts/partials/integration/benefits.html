@@ -1,0 +1,22 @@
+{{ $page := . }}
+{{ with .Params.benefits_heading }}
+  {{ with $page.Params.benefits }}
+    <section class="integration-section integration-benefits">
+      <h2 class="mb-4">{{ $page.Params.benefits_heading }}</h2>
+      <div class="row g-3">
+        {{ range . }}
+          {{ if and .title .text }}
+            <div class="col-md-6">
+              <article class="card integration-benefit-card">
+                <div class="card-body">
+                  <h3 class="h5 card-title">{{ .title }}</h3>
+                  <p class="card-text mb-0">{{ .text }}</p>
+                </div>
+              </article>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

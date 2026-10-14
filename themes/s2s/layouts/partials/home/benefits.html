@@ -1,0 +1,17 @@
+<section class="home-section">
+  <div class="container">
+    <h2 class="mb-4">{{ .heading }}</h2>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {{ range .cards }}
+        <div class="col">
+          <article class="card home-benefit-card">
+            <div class="card-body">
+              <h3 class="h5 card-title">{{ .title }}</h3>
+              <p class="card-text mb-0">{{ .text }}</p>
+            </div>
+          </article>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

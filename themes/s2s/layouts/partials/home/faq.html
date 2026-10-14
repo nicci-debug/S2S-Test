@@ -1,0 +1,21 @@
+<section class="home-section home-faq">
+  <div class="container">
+    <h2 class="mb-4">{{ .heading }}</h2>
+    <div class="accordion" id="homeFaqAccordion">
+      {{ range $index, $item := .items }}
+        {{ $itemID := printf "home-faq-item-%d" $index }}
+        {{ $headingID := printf "home-faq-heading-%d" $index }}
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="{{ $headingID }}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $itemID }}" aria-expanded="false" aria-controls="{{ $itemID }}">
+              {{ $item.question }}
+            </button>
+          </h3>
+          <div id="{{ $itemID }}" class="accordion-collapse collapse" aria-labelledby="{{ $headingID }}" data-bs-parent="#homeFaqAccordion">
+            <div class="accordion-body">{{ $item.answer }}</div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

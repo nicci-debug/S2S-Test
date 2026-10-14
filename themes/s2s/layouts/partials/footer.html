@@ -1,0 +1,14 @@
+<footer class="site-footer py-4 mt-auto">
+  <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+    <nav aria-label="Footer navigation">
+      <ul class="nav">
+        {{ range site.Menus.main }}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ .URL | relURL }}">{{ .Name }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+    <p class="mb-0">© {{ now.Year }} Stock2Shop</p>
+  </div>
+</footer>

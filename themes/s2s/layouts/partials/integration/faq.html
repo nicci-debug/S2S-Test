@@ -1,0 +1,47 @@
+{{ $page := . }}
+{{ $faqs := slice }}
+{{ range .Params.faqs }}
+  {{ if and .question .answer }}
+    {{ $faqs = $faqs | append . }}
+  {{ end }}
+{{ end }}
+{{ if and $page.Params.faq_heading (gt (len $faqs) 0) }}
+  {{ $accordionID := printf "integration-faq-%s" $page.File.BaseFileName }}
+  <section class="integration-section integration-faq">
+    <h2 class="mb-4">{{ $page.Params.faq_heading }}</h2>
+    <div class="accordion" id="{{ $accordionID }}">
+      {{ range $index, $faq := $faqs }}
+        {{ $questionID := printf "%s-question-%d" $accordionID $index }}
+        {{ $answerID := printf "%s-answer-%d" $accordionID $index }}
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="{{ $questionID }}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $answerID }}" aria-expanded="false" aria-controls="{{ $answerID }}">
+              {{ $faq.question }}
+            </button>
+          </h3>
+          <div id="{{ $answerID }}" class="accordion-collapse collapse" aria-labelledby="{{ $questionID }}" data-bs-parent="#{{ $accordionID }}">
+            <div class="accordion-body">{{ $faq.answer }}</div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ $hasPlaceholder := false }}
+  {{ range $faqs }}
+    {{ if or (strings.Contains .question "[PLACEHOLDER") (strings.Contains .answer "[PLACEHOLDER") }}
+      {{ $hasPlaceholder = true }}
+    {{ end }}
+  {{ end }}
+  {{ if not $hasPlaceholder }}
+    {{ $entities := slice }}
+    {{ range $faqs }}
+      {{ $entities = $entities | append (dict
+        "@type" "Question"
+        "name" .question
+        "acceptedAnswer" (dict "@type" "Answer" "text" .answer)
+      ) }}
+    {{ end }}
+    <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $entities | jsonify | safeJS }}</script>
+  {{ end }}
+{{ end }}

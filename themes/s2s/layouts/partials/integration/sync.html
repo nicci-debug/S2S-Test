@@ -1,0 +1,25 @@
+{{ $page := . }}
+{{ with .Params.sync_heading }}
+  {{ with $page.Params.sync_items }}
+    <section class="integration-section integration-sync">
+      <h2 class="mb-4">{{ $page.Params.sync_heading }}</h2>
+      <div class="table-responsive">
+        <table class="table integration-sync-table">
+          <tbody>
+            {{ range . }}
+              {{ if and .item .direction }}
+                <tr>
+                  <td>
+                    <strong>{{ .item }}</strong>
+                    {{ with .detail }}<p class="integration-sync-detail">{{ . }}</p>{{ end }}
+                  </td>
+                  <td>{{ .direction }}</td>
+                </tr>
+              {{ end }}
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

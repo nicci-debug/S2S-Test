@@ -1,0 +1,31 @@
+run = "hugo server --bind 0.0.0.0 --port 3000 --baseURL / --appendPort=false --buildDrafts --disableFastRender"
+
+[deployment]
+router = "application"
+deploymentTarget = "autoscale"
+
+[workflows]
+runButton = "Hugo Preview"
+
+[[workflows.workflow]]
+name = "Hugo Preview"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "hugo server --bind 0.0.0.0 --port 3000 --baseURL / --appendPort=false --buildDrafts --disableFastRender"
+waitForPort = 3000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+internalPort = 3000
+externalPort = 80
+
+[agent]
+expertMode = true
+
+[nix]
+channel = "stable-25_05"
+packages = ["hugo"]

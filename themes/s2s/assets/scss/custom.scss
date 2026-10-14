@@ -1,0 +1,300 @@
+$charcoal: #2a2d35;
+$red-primary: #e8312a;
+$red-hover: #c8231d;
+$white: #ffffff;
+
+:root {
+  --s2s-charcoal: #{$charcoal};
+  --s2s-red-primary: #{$red-primary};
+  --s2s-red-hover: #{$red-hover};
+  --s2s-white: #{$white};
+  --bs-primary: #{$red-primary};
+  --bs-primary-rgb: 232, 49, 42;
+  --bs-body-font-family: "Roboto", sans-serif;
+}
+
+body {
+  color: $charcoal;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  color: $red-primary;
+
+  &:hover {
+    color: $red-hover;
+  }
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar .nav-link {
+  color: $charcoal;
+}
+
+.navbar .nav-link:hover {
+  color: $red-hover;
+}
+
+.btn-primary {
+  --bs-btn-color: #{$white};
+  --bs-btn-bg: #{$red-primary};
+  --bs-btn-border-color: #{$red-primary};
+  --bs-btn-hover-color: #{$white};
+  --bs-btn-hover-bg: #{$red-hover};
+  --bs-btn-hover-border-color: #{$red-hover};
+  --bs-btn-active-color: #{$white};
+  --bs-btn-active-bg: #{$red-hover};
+  --bs-btn-active-border-color: #{$red-hover};
+  --bs-btn-disabled-color: #{$white};
+  --bs-btn-disabled-bg: #{$red-primary};
+  --bs-btn-disabled-border-color: #{$red-primary};
+}
+
+.site-footer {
+  background-color: $charcoal;
+  color: $white;
+}
+
+.site-footer a,
+.site-footer a:hover {
+  color: $white;
+}
+
+.home-section {
+  padding-block: 3rem;
+}
+
+.home-hero-visual {
+  display: flex;
+  min-height: 20rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--bs-light);
+  color: $charcoal;
+  text-align: center;
+}
+
+.home-trust-box {
+  display: flex;
+  min-height: 5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: $charcoal;
+  text-align: center;
+}
+
+.home-stat-value {
+  color: $red-primary;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.home-stat-label {
+  color: $charcoal;
+}
+
+.home-benefit-card {
+  height: 100%;
+  color: $charcoal;
+}
+
+.home-step-number {
+  color: $red-primary;
+  font-weight: 700;
+}
+
+.home-integration-tile {
+  display: flex;
+  min-height: 4.5rem;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid var(--bs-border-color);
+  background-color: $white;
+  color: $charcoal;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $red-primary;
+    color: $charcoal;
+  }
+}
+
+.home-faq .accordion-button {
+  background-color: $white;
+  color: $charcoal;
+}
+
+.home-faq .accordion-button:not(.collapsed) {
+  background-color: $white;
+  box-shadow: none;
+  color: $charcoal;
+}
+
+.home-faq .accordion-button:focus {
+  border-color: var(--bs-border-color);
+  box-shadow: 0 0 0 0.25rem rgba(232, 49, 42, 0.25);
+}
+
+.home-faq .accordion-button::after {
+  display: none;
+}
+
+.home-cta {
+  background-color: $charcoal;
+  color: $white;
+}
+
+.home-cta h2,
+.home-cta p {
+  color: $white;
+}
+
+.btn-outline-charcoal {
+  --bs-btn-color: #{$charcoal};
+  --bs-btn-border-color: #{$charcoal};
+  --bs-btn-hover-color: #{$white};
+  --bs-btn-hover-bg: #{$charcoal};
+  --bs-btn-hover-border-color: #{$charcoal};
+  --bs-btn-active-color: #{$white};
+  --bs-btn-active-bg: #{$charcoal};
+  --bs-btn-active-border-color: #{$charcoal};
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-integration-tile {
+    transition: border-color 160ms ease;
+  }
+}
+
+.integration-hero-logo {
+  max-width: 100%;
+  max-height: 8rem;
+  object-fit: contain;
+}
+
+.integration-trust-placeholder {
+  display: flex;
+  min-height: 5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid var(--bs-border-color);
+  background-color: var(--bs-light);
+  color: var(--bs-secondary-color);
+  text-align: center;
+}
+
+.integration-section {
+  margin-block-end: 2.75rem;
+}
+
+.integration-tldr {
+  padding: 1.25rem 1.5rem;
+  border-left: 0.3rem solid $charcoal;
+  background-color: var(--bs-light);
+}
+
+.integration-benefit-card {
+  height: 100%;
+  color: $charcoal;
+}
+
+.integration-sync-table td {
+  vertical-align: top;
+}
+
+.integration-sync-detail {
+  margin-block: 0.5rem 0;
+}
+
+.integration-steps {
+  display: grid;
+  gap: 1.25rem;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.integration-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.integration-step-number {
+  flex: 0 0 auto;
+  color: $red-primary;
+  font-weight: 700;
+}
+
+.integration-stat-value {
+  color: $red-primary;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.integration-sidebar-card {
+  padding: 1.5rem;
+  border: 1px solid var(--bs-border-color);
+  background-color: $white;
+}
+
+.integration-sidebar-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.integration-sidebar-fact {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.integration-cta {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background-color: $charcoal;
+  color: $white;
+}
+
+.integration-cta h2,
+.integration-cta p {
+  color: $white;
+}
+
+.integration-faq .accordion-button,
+.integration-faq .accordion-button:not(.collapsed) {
+  background-color: $white;
+  color: $charcoal;
+}
+
+.integration-faq .accordion-button:focus {
+  border-color: var(--bs-border-color);
+  box-shadow: 0 0 0 0.25rem rgba(232, 49, 42, 0.25);
+}
+
+.integration-faq .accordion-button::after {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .integration-sidebar-inner {
+    position: sticky;
+    top: 2rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .integration-sidebar-inner {
+    position: static;
+  }
+}

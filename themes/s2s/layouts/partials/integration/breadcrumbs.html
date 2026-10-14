@@ -1,0 +1,9 @@
+{{ with .Title }}
+  <nav class="container pt-4 integration-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="{{ "/" | relURL }}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{ "integrations/" | relURL }}">Integrations</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ . }}</li>
+    </ol>
+  </nav>
+{{ end }}

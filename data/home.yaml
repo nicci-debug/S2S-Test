@@ -1,0 +1,112 @@
+hero:
+  enabled: true
+  headline: "[PLACEHOLDER: hero headline]"
+  subheading: "[PLACEHOLDER: hero subheading]"
+  primary_cta:
+    label: "Book a demo"
+    url: "#"
+  secondary_cta:
+    label: "[PLACEHOLDER: secondary CTA label]"
+    url: "#"
+  visual: "[PLACEHOLDER: hero visual]"
+
+trust_bar:
+  enabled: true
+  heading: "[PLACEHOLDER: trust bar heading]"
+  logos:
+    - "[PLACEHOLDER: client logo]"
+    - "[PLACEHOLDER: client logo]"
+    - "[PLACEHOLDER: client logo]"
+    - "[PLACEHOLDER: client logo]"
+    - "[PLACEHOLDER: client logo]"
+    - "[PLACEHOLDER: client logo]"
+
+stats:
+  enabled: true
+  items:
+    - value: "350+"
+      label: "active clients"
+    - value: "2016"
+      label: "connecting businesses since"
+    - value: "SA, UK & beyond"
+      label: "where our clients trade"
+
+benefits:
+  enabled: true
+  heading: "[PLACEHOLDER: benefits heading]"
+  cards:
+    - title: "[PLACEHOLDER: benefit title]"
+      text: "[PLACEHOLDER: benefit description]"
+    - title: "[PLACEHOLDER: benefit title]"
+      text: "[PLACEHOLDER: benefit description]"
+    - title: "[PLACEHOLDER: benefit title]"
+      text: "[PLACEHOLDER: benefit description]"
+    - title: "[PLACEHOLDER: benefit title]"
+      text: "[PLACEHOLDER: benefit description]"
+
+how_it_works:
+  enabled: true
+  heading: "[PLACEHOLDER: how it works heading]"
+  steps:
+    - number: "1"
+      title: "[PLACEHOLDER: step title]"
+      text: "[PLACEHOLDER: step description]"
+    - number: "2"
+      title: "[PLACEHOLDER: step title]"
+      text: "[PLACEHOLDER: step description]"
+    - number: "3"
+      title: "[PLACEHOLDER: step title]"
+      text: "[PLACEHOLDER: step description]"
+
+integrations:
+  enabled: true
+  heading: "[PLACEHOLDER: integrations heading]"
+  groups:
+    - label: "ERP and accounting"
+      desktop_columns: 4
+      tiles:
+        - name: "Sage"
+          url: "/integrations/sage/"
+        - name: "Syspro"
+          url: "/integrations/syspro/"
+        - name: "SAP Business One"
+          url: "/integrations/sap-business-one/"
+        - name: "Acumatica"
+          url: "/integrations/acumatica/"
+    - label: "Sales channels"
+      desktop_columns: 5
+      tiles:
+        - name: "Shopify"
+          url: "/integrations/shopify/"
+        - name: "WooCommerce"
+          url: "/integrations/woocommerce/"
+        - name: "Magento"
+          url: "/integrations/magento-2/"
+        - name: "Takealot"
+          url: "/integrations/takealot/"
+        - name: "Amazon"
+          url: "/integrations/amazon/"
+  view_all:
+    label: "View all integrations"
+    url: "/integrations/"
+
+faq:
+  enabled: true
+  heading: "[PLACEHOLDER: FAQ heading]"
+  items:
+    - question: "[PLACEHOLDER: question]"
+      answer: "[PLACEHOLDER: answer]"
+    - question: "[PLACEHOLDER: question]"
+      answer: "[PLACEHOLDER: answer]"
+    - question: "[PLACEHOLDER: question]"
+      answer: "[PLACEHOLDER: answer]"
+    - question: "[PLACEHOLDER: question]"
+      answer: "[PLACEHOLDER: answer]"
+
+cta:
+  enabled: true
+  heading: "[PLACEHOLDER: closing CTA heading]"
+  text: "[PLACEHOLDER: closing CTA text]"
+  button:
+    label: "Book a demo"
+    url: "#"
